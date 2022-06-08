@@ -125,4 +125,34 @@ export class LinkedList {
     }
     return -1;
   }
+
+  printArray() {
+    let node = this.head;
+
+    while (node != null) {
+      console.log(node?.data);
+      node = node.next;
+    }
+  }
+
+  reverse() {
+    if (this.isListEmpty()) {
+      return;
+    }
+
+    let previous = this.head;
+    let current = this.head.next;
+    while (current != null) {
+      let next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+    }
+
+    this.tail = this.head;
+    this.tail.next = null;
+    this.head = previous;
+
+    return this.head;
+  }
 }
