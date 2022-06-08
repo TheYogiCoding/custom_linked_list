@@ -155,4 +155,31 @@ export class LinkedList {
 
     return this.head;
   }
+
+  getKthFromTheEnd(k) {
+    if (this.isListEmpty()) {
+      return;
+    }
+
+    let a = this.head;
+    let b = this.head;
+    //k-1 nodes apart
+
+    for (let i = 0; i < k - 1; i++) {
+      //Checking if k is greater than the size of the linked list
+      //without looping through the entire list again
+      //may not know the size of the linked list
+      if (b == null) {
+        console.log("K is greater than size of this list");
+        return;
+      }
+      b = b.next;
+    }
+    while (b != this.tail) {
+      a = a.next;
+      b = b.next;
+    }
+
+    return a.data;
+  }
 }

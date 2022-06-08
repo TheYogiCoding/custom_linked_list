@@ -11,3 +11,6 @@ list.addLast(30);
 list.reverse();
 
 list.printArray();
+
+//10
+console.log("Last Node Value", list.getKthFromTheEnd(1));
